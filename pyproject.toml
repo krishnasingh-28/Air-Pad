@@ -1,0 +1,31 @@
+[project]
+name = "airpad"
+version = "1.0.0"
+description = "Draw and write in the air with your index finger (webcam + MediaPipe hand tracking)."
+requires-python = ">=3.10"
+dependencies = [
+    "mediapipe==1.2.2",
+    "opencv-contrib-python==5.0.0.93",
+    "numpy==2.5.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "ruff==0.17.3"]
+
+[project.scripts]
+airpad = "airpad.app:main"
+
+[tool.setuptools]
+packages = ["airpad"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I", "UP", "SIM"]
+ignore = ["E731"]
